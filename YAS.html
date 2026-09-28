@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Student Resource Hub</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🎓 CampusConnect</a>
+            <span class="badge bg-light text-primary fs-6" id="totalResourcesBadge">Total: 0</span>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+        
+        <!-- Header Banner -->
+        <div class="p-4 mb-4 bg-light rounded-3 border text-center">
+            <h1 class="display-6 fw-bold text-primary">Student Resource Hub</h1>
+            <p class="lead">Find, share, and organize academic notes, PDFs, and exam guides seamlessly.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Left Side: Resource Add Form -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white fw-bold">
+                        ➕ Add New Resource
+                    </div>
+                    <div class="card-body">
+                        <form id="resourceForm">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Resource Title</label>
+                                <input type="text" class="form-control" id="title" placeholder="e.g., Data Structures Notes" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-select" id="category" required>
+                                    <option value="" selected disabled>Select Category</option>
+                                    <option value="Lecture Notes">Lecture Notes</option>
+                                    <option value="Question Bank">Question Bank</option>
+                                    <option value="Lab Manual">Lab Manual</option>
+                                    <option value="Book / Reference">Book / Reference</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="link" class="form-label">Resource Drive/PDF Link</label>
+                                <input type="url" class="form-control" id="link" placeholder="https://..." required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">Add Resource</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Search & Resource List -->
+            <div class="col-lg-8">
+                <!-- Filter Section -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <input type="text" id="searchInput" class="form-control w-50" placeholder="🔍 Search resources by title...">
+                    <select id="filterCategory" class="form-select w-40 ms-2">
+                        <option value="All">All Categories</option>
+                        <option value="Lecture Notes">Lecture Notes</option>
+                        <option value="Question Bank">Question Bank</option>
+                        <option value="Lab Manual">Lab Manual</option>
+                        <option value="Book / Reference">Book / Reference</option>
+                    </select>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="row g-3" id="resourceContainer">
+                    <!-- Dynamic JS cards will load here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
